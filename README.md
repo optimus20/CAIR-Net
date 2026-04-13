@@ -10,3 +10,8 @@ Code: ApzY
 ## Paper
 
 Reliability-Aware Information Routing for Robust Multimodal Object Detection under Modality Degradation
+
+
+<p align="center">
+  <img src="assets/framework.png" width="800"/>
+</p>
