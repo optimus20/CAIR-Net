@@ -13,5 +13,5 @@ Reliability-Aware Information Routing for Robust Multimodal Object Detection und
 
 
 <p align="center">
-  <img src="assets/framework.png" width="800"/>
+  <img src="assets/framework2.png" width="800"/>
 </p>
