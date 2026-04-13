@@ -1,0 +1,71 @@
+# CAIR-Net: Reliability-Aware Information Routing for Robust Multimodal Object Detection under Modality Degradation
+
+🔥 **IEEE TCSVT 2026 Accepted Paper**
+
+---
+
+## 📖 Paper
+
+This paper proposes **CAIR-Net**, a reliability-aware multimodal detection framework for optical–SAR data under modality degradation.
+
+It introduces:
+- **Local Reliability Modulation (LRM)** for spatial reliability estimation
+- **Global Information Selection Mechanism (GISM)** for expert routing
+- A controlled benchmark for cross-modality degradation
+
+👉 As shown in the paper, CAIR-Net significantly reduces performance degradation under severe cloud occlusion  :contentReference[oaicite:0]{index=0}
+
+
+---
+
+## 🧠 Method Overview
+
+![framework](assets/framework.png)
+
+---
+
+## 📊 Dataset (MMD-C)
+
+We release the dataset used in this paper for multimodal detection under degradation.
+
+### 🔥 Key Features
+- Optical–SAR paired data
+- Controlled cloud degradation
+- Multi-level severity: 0 → 1.0
+- Realistic heterogeneous degradation setting
+
+---
+
+## 📥 Download
+
+👉 Quark Cloud:
+https://pan.quark.cn/s/caa621e0ce5b  
+
+🔑 Extraction Code: **ApzY**
+
+---
+
+## 📸 Visualization
+
+![results](assets/results.png)
+
+---
+
+## 📌 Highlights
+
+- First reliability-aware routing framework for degraded multimodal detection
+- Explicit modeling of spatial reliability
+- Robust under extreme modality corruption
+- End-to-end without degradation labels
+
+---
+
+## 📖 Citation
+
+```bibtex
+@article{cairnet2026,
+  title={CAIR-Net: Reliability-Aware Information Routing for Robust Multimodal Object Detection under Modality Degradation},
+  author={Yudi Su and others},
+  journal={IEEE Transactions on Circuits and Systems for Video Technology},
+  year={2026}
+}
