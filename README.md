@@ -93,7 +93,7 @@ Cloud density:
 
 Instead of directly fusing multimodal features, CAIR-Net follows a simple yet effective paradigm:
 
-```text
+
 Suppress unreliable regions → Select informative features → Adaptive fusion
 
 ---
