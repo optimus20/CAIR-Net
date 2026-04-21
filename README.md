@@ -163,7 +163,11 @@ Cloud density:
 
 - Optical weight ↓ as cloud increases  
 - SAR weight ↑ under heavy occlusion  
-- Adaptive expert selection  
+- Adaptive expert selection
+
+<p align="center">
+  <img src="weight.png" width="600"/>
+</p>
 
 👉 Model automatically **shifts reliance to reliable modality**
 
