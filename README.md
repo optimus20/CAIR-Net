@@ -60,7 +60,7 @@ Cloud density:
 0 → 0.2 → 0.5 → 0.8 → 1.0
 
 <p align="center">
-  <img src="cloud.png" width="470"/>
+  <img src="cloud.png" width="600"/>
 </p>
 ---
 
