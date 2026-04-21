@@ -1,12 +1,75 @@
 # 🔥 CAIR-Net: Reliability-Aware Information Routing for Robust Multimodal Object Detection under Modality Degradation
 
 <p align="center">
-  <img src="framework2.png" width="860"/>
+  <img src="framework2.png" width="880"/>
 </p>
 
 <p align="center">
-  <strong>IEEE TCSVT 2026</strong> | Reliability-Aware Multimodal Detection under Degradation
+  <strong>IEEE TCSVT 2026</strong> | Reliability-Aware Optical–SAR Detection under Cloud Degradation
 </p>
+
+---
+
+## 📖 Overview
+
+Multimodal remote sensing combines **optical imagery** and **SAR** for robust object detection.  
+However, in real-world scenarios:
+
+- 🌥 Optical images are frequently degraded by **cloud occlusion**
+- 📡 SAR remains stable but suffers from **noise and limited semantic detail**
+
+❗ Under such conditions, directly fusing degraded optical features leads to **feature contamination** and severe performance degradation.
+
+To address this, we propose **CAIR-Net**, a **reliability-aware information routing framework** that follows a:
+
+> 🔑 **Denoise → Select → Fuse**
+
+pipeline to suppress corrupted signals and adaptively exploit reliable information.
+
+---
+
+## 🚨 Limitations of Existing Methods
+
+Existing multimodal detection approaches struggle under cloud degradation:
+
+- ❌ **Naive fusion** assumes all modalities are equally reliable  
+- ❌ **Attention-based fusion** focuses on semantics, ignoring signal quality  
+- ❌ **Restoration-first methods** introduce artifacts and increase latency  
+- ❌ **Lack of benchmark** for controlled cloud degradation evaluation  
+
+👉 These methods suffer **rapid performance drop** under increasing cloud density.
+
+---
+
+## 📊 Dataset: MMD-C Benchmark
+
+We construct a **controlled cloud-degraded multimodal benchmark (MMD-C)**.
+
+### 🧩 Construction
+
+- Built on **co-registered optical–SAR pairs**
+- Only **optical modality is degraded**
+- SAR remains unchanged → simulate **modality imbalance**
+
+---
+
+### 🌩 Cloud Degradation
+
+Cloud corruption is generated via alpha blending:
+Cloud density:
+
+```text
+0 → 0.2 → 0.5 → 0.8 → 1.0
+
+
+---
+
+### ✨ Key Features
+
+- ✔ Controlled and reproducible  
+- ✔ Spatially heterogeneous cloud occlusion  
+- ✔ Same scene under multiple degradation levels  
+- ✔ Fine-grained robustness evaluation  
 
 ---
 
@@ -22,45 +85,96 @@
 
 ---
 
-## 📖 Overview
+## 🧠 Method: CAIR-Net
 
-Multimodal remote sensing (Optical + SAR) provides complementary information for object detection.  
-However, in real-world scenarios, **modality degradation is inevitable**:
+### 🔹 Core Idea
 
-- 🌥 Optical images → cloud, haze, low-light  
-- 📡 SAR images → noise, interference  
-
-❗ When degraded features are directly fused, they **contaminate the joint representation**, leading to severe performance drop.
+> Reformulate multimodal detection as a **reliability-aware routing problem**
 
 ---
 
-## 🚨 Limitations of Existing Methods
+### 🔸 1. Local Reliability Modulation (LRM)
 
-Current approaches still suffer from critical weaknesses:
+- 📍 Pixel-wise reliability estimation  
+- 🔻 Suppresses cloud-corrupted regions  
+- 🧠 Acts as spatial quality modeling  
 
-- ❌ **Naive fusion**: treats all modalities equally → ignores reliability  
-- ❌ **Attention-based fusion**: focuses on semantics, not signal quality  
-- ❌ **Restoration-first pipelines**: introduce artifacts + high latency  
-- ❌ **No controlled benchmark**: lack reproducible degradation evaluation  
-
-👉 These methods fail under **spatially heterogeneous and severe degradation**
+👉 Prevents degraded optical features from entering fusion
 
 ---
 
-## 📊 Dataset: MMD-C Benchmark
+### 🔸 2. Global Information Selection Mechanism (GISM)
 
-We propose a **controlled multimodal degradation benchmark**.
+#### ⚙️ Sparse Expert Activation (SEA)
 
-### 🧩 Construction
+- Replace FFN with **sparse MoE**
+- Activate Top-K experts per token  
+- Capture diverse feature patterns  
 
-- Based on **co-registered Optical–SAR pairs**
-- Only **optical modality is degraded**
-- SAR remains unchanged → simulate **modality imbalance**
+---
 
-### 🌩 Degradation Design
+#### 🎯 Confidence-Aware Expert Aggregation (CEA)
 
-- Realistic cloud masks + alpha blending  
-- Continuous severity levels:
+- Dynamically weight:
+  - Optical 🌥
+  - SAR 📡
+  - Fused 🔗
+- Route information based on reliability  
 
-```text
-0 → 0.2 → 0.5 → 0.8 → 1.0
+👉 Automatically suppress unreliable modality
+
+---
+
+### 🔸 3. Reliability-Aware Fusion
+
+- Combine local (LRM) + global (CEA)  
+- Adaptive multimodal fusion  
+- Robust under severe cloud occlusion  
+
+---
+
+## 🚀 Highlights
+
+- 🌩 Controlled **cloud-degradation benchmark**
+- 🧠 Reliability-aware routing (**LRM + GISM**)
+- ⚡ End-to-end **denoise-then-fuse**
+- 📉 Strong robustness under heavy clouds
+- 🔄 No degradation labels required
+
+---
+
+## 📈 Results
+
+| Method | AP | AP50 |
+|--------|----|------|
+| MMFDet | 57.1 | 87.0 |
+| DDCI   | 58.5 | 86.4 |
+| C2Former | 58.9 | 87.0 |
+| ICAFusion | 50.3 | 91.2 |
+| **CAIR-Net (Ours)** | **63.8** | **94.5** |
+
+👉 CAIR-Net achieves **significant improvement** under cloud degradation.
+
+---
+
+## 🎨 Visualization
+
+### Reliability-Aware Routing
+
+- Optical weight ↓ as cloud increases  
+- SAR weight ↑ under heavy occlusion  
+- Adaptive expert selection  
+
+👉 Model automatically **shifts reliance to reliable modality**
+
+---
+## Citation
+
+```bibtex
+@article{su2026cairnet,
+  title={CAIR-Net: Reliability-Aware Information Routing for Robust Multimodal Object Detection under Modality Degradation},
+  author={Su, Yudi and Ni, Jialei and Wen, Tiansheng and Liu, Hongwei and Su, Hongtao and Chen, Bo},
+  journal={IEEE Transactions on Circuits and Systems for Video Technology},
+  year={2026}
+}
+
