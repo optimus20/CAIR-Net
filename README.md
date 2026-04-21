@@ -55,15 +55,12 @@ We construct a **controlled cloud-degraded multimodal benchmark (MMD-C)**.
 
 ### 🌩 Cloud Degradation
 
-Cloud corruption is generated via alpha blending:
+Cloud corruption is generated via alpha blending
 Cloud density:
-
-
-text
 0 → 0.2 → 0.5 → 0.8 → 1.0
 
 <p align="center">
-  <img src="cloud.png" width="880"/>
+  <img src="cloud.png" width="470"/>
 </p>
 ---
 
