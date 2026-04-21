@@ -89,47 +89,12 @@ Cloud density:
 
 ### 🔹 Core Idea
 
-> Reformulate multimodal detection as a **reliability-aware routing problem**
+> Reformulate multimodal detection under cloud degradation as a **reliability-aware information routing problem**
 
----
+Instead of directly fusing multimodal features, CAIR-Net follows a simple yet effective paradigm:
 
-### 🔸 1. Local Reliability Modulation (LRM)
-
-- 📍 Pixel-wise reliability estimation  
-- 🔻 Suppresses cloud-corrupted regions  
-- 🧠 Acts as spatial quality modeling  
-
-👉 Prevents degraded optical features from entering fusion
-
----
-
-### 🔸 2. Global Information Selection Mechanism (GISM)
-
-#### ⚙️ Sparse Expert Activation (SEA)
-
-- Replace FFN with **sparse MoE**
-- Activate Top-K experts per token  
-- Capture diverse feature patterns  
-
----
-
-#### 🎯 Confidence-Aware Expert Aggregation (CEA)
-
-- Dynamically weight:
-  - Optical 🌥
-  - SAR 📡
-  - Fused 🔗
-- Route information based on reliability  
-
-👉 Automatically suppress unreliable modality
-
----
-
-### 🔸 3. Reliability-Aware Fusion
-
-- Combine local (LRM) + global (CEA)  
-- Adaptive multimodal fusion  
-- Robust under severe cloud occlusion  
+```text
+Suppress unreliable regions → Select informative features → Adaptive fusion
 
 ---
 
