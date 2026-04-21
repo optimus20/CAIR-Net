@@ -166,7 +166,7 @@ Cloud density:
 - Adaptive expert selection
 
 <p align="center">
-  <img src="weight.png" width="600"/>
+  <img src="weight.png" width="800"/>
 </p>
 
 👉 Model automatically **shifts reliance to reliable modality**
