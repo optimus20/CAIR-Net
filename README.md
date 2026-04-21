@@ -146,10 +146,10 @@ We evaluate CAIR-Net under increasing cloud density levels.
 ## Citation
 
 ```bibtex
-@article{su2026cairnet,
+@article{su2026cair,
   title={CAIR-Net: Reliability-Aware Information Routing for Robust Multimodal Object Detection under Modality Degradation},
   author={Su, Yudi and Ni, Jialei and Wen, Tiansheng and Liu, Hongwei and Su, Hongtao and Chen, Bo},
   journal={IEEE Transactions on Circuits and Systems for Video Technology},
-  year={2026}
+  year={2026},
+  publisher={IEEE}
 }
-
